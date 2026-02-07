@@ -279,65 +279,63 @@ This lab demonstrated how OS defaults and firewall settings influence network vi
 
 **Linux Scenario**
 
-![[sn to vv ignored state windows delete all singles from before 2.png]]
-Nmap scan results before firewall was disabled, note that all ports are in ignored state.
+![Nmap scan results before firewall was disabled, note that all ports are in ignored state.](Images/sn to vv ignored state windows delete all singles from before 2.png)
 
-![[sudo scans sending tcp syn with fire wall up wireshark 1.png]]
-Wireshark scan showing no reponse from ports i.e all syn requests sent by probes with no ack response.
-
-![[O and A windows ignored state.png]]
-Nmap -O scan showing inability to finger print OS due to ports in ignored state too.
+![Wireshark scan showing no reponse from ports i.e all syn requests sent by probes with no ack response.](Images/sudo scans sending tcp syn with fire wall up wireshark 1.png)
 
 
-![[Additional info on wireshark for O scan 2.png]]
-Wireshark showing no response from 192.168.56.102 our windows ip, notice variance in probe sent as needed to fingerprint OS.
+![Nmap -O scan showing inability to finger print OS due to ports in ignored state too.](Images/O and A windows ignored state.png)
 
 
-![[Netfirewallrule modification.png]]
-Checking Firewall Rule created.
 
-![[starting a listening service.png]]
-Starting a listening service  on port 8080
+![Wireshark showing no response from 192.168.56.102 our windows ip, notice variance in probe sent as needed to fingerprint OS.](Images/Additional info on wireshark for O scan 2.png)
 
 
-![[checking the listener.png]]
-Checking  the listening service i.e Netstat -ano | findstr 8080
+
+
+![Checking Firewall Rule created.](Images/Netfirewallrule modification.png)
+
+
+![Starting a listening service  on port 8080](Images/starting a listening service.png)
+
+
+
+
+![Checking  the listening service i.e Netstat -ano | findstr 8080](Images/checking the listener.png)
+
 
 Note: Pictures for enabling and disabling firewall was not added as they really donot differ from the codes shown in firewall section of the write up above.
 
-![[sn and sS scan post firewall mod.png]]
-Retrying the Nmap scans again see difference as there is now response as Firewall was disabled.
+![Retrying the Nmap scans again see difference as there is now response as Firewall was disabled.](Images/sn and sS scan post firewall mod.png)
 
-![[sv and o with firewall down.png]]
-Same process as previous figure , see successful fingerprint and port responses to nmap scan.(Note this was done after full disabling of the firewall)
+![Same process as previous figure , see successful fingerprint and port responses to nmap scan.(Note this was done after full disabling of the firewall)](Images/sv and o with firewall down.png)
 
-![[difffernce see wirehsark now for ss and when firewall down 1.png]]
-Wireshark showing tcp ACK, RST responses to scans now that firewall is down
 
-![[notice rst, ack for o scan with firewall down 1.png]]
-Wireshark showing response to various probes for O scan.
+![Wireshark showing tcp ACK, RST responses to scans now that firewall is down](Images/difffernce see wirehsark now for ss and when firewall down 1.png)
+
+![Wireshark showing response to various probes for O scan.](Images/notice rst, ack for o scan with firewall down 1.png)
+
 
 **Windows Scenario**
 
-![[SS and SN scan windows - kali.png]]
-Initial -sS scan result showing two ports open as a result of port response as there's no firewal blocking
+![Initial -sS scan result showing two ports open as a result of port response as there's no firewal blocking](Images/SS and SN scan windows - kali.png)
 
-![[nmap scan with response aftr fire wall disabled sS scan.png]]
-Wireshark scan showing TCP RST,ACK response showing port activity
-
-![[SV scan windows as attacker.png]]
-Nmap sV scan showing the listening service as splunk Daemon as explained earlier
-
-![[nmap scan with response aftr fire wall disabled sS scan 2.png]]
-Wireshark showing port activity for -sV scan
+![Wireshark scan showing TCP RST,ACK response showing port activity](Images/nmap scan with response aftr fire wall disabled sS scan.png)
 
 
-![[sS and O scan showing port inactivity except for port 22 with RST rsp.png]]
-nmap O and sS scan results  with firewall up, notice port 22 response unlike windows.
-![[wireshark for ss scan ufw up 1.png]]Wireshark showing -sS scan with no TCP response to SYN with ufw  firewall up.
+![Nmap sV scan showing the listening service as splunk Daemon as explained earlier](SV scan windows as attacker.png)
 
-![[O scan with ufw up 1.png]]
-Wireshark traffic analysis  showing -O scan with RST tcp response for show closed port and others unresponsive .
+
+
+![Wireshark showing port activity for -sV scan](nmap scan with response aftr fire wall disabled sS scan 2.png)
+
+
+![nmap O and sS scan results  with firewall up, notice port 22 response unlike windows.](Images/sS and O scan showing port inactivity except for port 22 with RST rsp.png)
+
+![Wireshark showing -sS scan with no TCP response to SYN with ufw  firewall up.](wireshark for ss scan ufw up 1.png)
+![Wireshark traffic analysis  showing -O scan with RST tcp response for show closed port and others unresponsive .](O scan with ufw up 1.png)
+
+
 
 That's all, thank you for staying till the end.
 
