@@ -279,7 +279,7 @@ This lab demonstrated how OS defaults and firewall settings influence network vi
 
 **Linux Scenario**
 
-![Nmap scan results before firewall was disabled note that all ports are in ignored state](Images/Image1.png)
+![Nmap scan results before firewall was disabled note that all ports are in ignored state](Images/image1.png)
 
 ![Wireshark scan showing no reponse from ports](Images/Image2.png)
 
