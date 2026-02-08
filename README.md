@@ -280,63 +280,58 @@ This lab demonstrated how OS defaults and firewall settings influence network vi
 **Linux Scenario**
 
 ![Nmap scan results before firewall was disabled note that all ports are in ignored state](Images/image1.png)
+*Figure 1 - Nmap scan results before firewall was disabled note that all ports are in ignored state
 
 ![Wireshark scan showing no reponse from ports](Images/Image2.png)
-
-
-
+*Figure 2 - Wireshark scan showing no reponse from ports(Only SYN Requests)
 
 ![Nmap -O scan showing inability to finger print OS due to ports in ignored state too](Images/Image3.png)
-
-
+*Figure 3 - Nmap -O scan showing inability to finger print OS due to ports in ignored state too
 
 ![Wireshark showing no response from to OS fingerprint attempt](Images/Image4.png)
-
-
-
+*Figure 4 - Wireshark showing no response from to OS fingerprint attempt(Notice varying requests as explained)
 
 ![Checking Firewall Rule created](Images/Image5.png)
-
+*Figure 5 - Checking Firewall Rule created
 
 ![Starting a listening service  on port 8080](Images/Image6.png)
-
-
+*Figure 6 - Starting a listening service  on port 8080
 
 
 ![Checking  the listening service i.e Netstat -ano | findstr 8080](Images/Image7.png)
-
+*Figure 7 - Checking  the listening service i.e Netstat -ano | findstr 8080
 
 Note: Pictures for enabling and disabling firewall was not added as they really do not differ from the codes shown in firewall section of the write up above.
 
 ![Retrying the Nmap scans again see difference as there is now response as Firewall was disabled](Images/Image8.png)
+*Figure 8 - Retrying the Nmap scans again see difference as there is now response as Firewall was disabled
 
 ![Same process as previous figure  see successful fingerprint and port responses to nmap scan.(Note this was done after full disabling of the firewall)](Images/Image9.png)
-
+*Figure 9 - Same process as previous scans  see successful fingerprint and port responses to nmap scan.(Note this was done after fully disabling of the firewall).
 
 ![Wireshark showing tcp ACK, RST responses to scans now that firewall is down](Images/Image10.png)
+*Figure 10 - Wireshark showing TCP ACK, RST responses to scans now that firewall is down
 
 ![Wireshark showing response to various probes for O scan](Images/Image11.png)
-
+*Figure 11 - Wireshark showing response to various probes for O scan
 
 
 **Windows Scenario**
 
 ![Initial -sS scan result showing two ports open as a result of port response as there's no firewal blocking](Images/Image12.png)
+*Figure 12 - Initial -sS scan result showing two ports open as a result of port response as there's no firewal blocking
 
 ![Wireshark scan showing TCP RST,ACK response showing port activity](Images/Image13.png)
-
+*Figure 13 - Wireshark scan showing TCP RST,ACK response showing port activity
 
 ![Nmap sV scan showing the listening service as splunk Daemon as explained earlier](Images/Image14.png)
-
-
-
-![Wireshark showing port activity for -sV scan](Images/Image15.png)
-
+*Figure 14 - Nmap sV scan showing the listening service as splunk Daemon as explained earlier
 
 ![nmap O and sS scan results  with firewall up, notice port 22 response unlike windows.](Images/Image16.png)
+*Figure 15 - nmap O and sS scan results  with firewall up, notice port 22 response unlike windows.
 
 ![Wireshark traffic analysis  showing -O scan with RST tcp response for show closed port and others unresponsive](Images/Image17.png)
-
+*Figure 16 - Wireshark traffic analysis  showing -O scan with RST tcp response for show closed port and others unresponsive
 
 
 That's all, thank you for staying till the end.
