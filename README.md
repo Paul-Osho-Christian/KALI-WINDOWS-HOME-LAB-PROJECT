@@ -8,7 +8,7 @@
 ## Project Overview
   The purpose of this project is **to;**
   - simulate real world scenarios  of  likely events on a small network  between an attacking unit and a defending unit.
-  - Get familiar with network investigation tools i.e VirtualBox, Windows 10 , Kali-Linux, Nmap, WIreshark, Ufw(Uncomplicated Firewall)
+  - Get familiar with network investigation tools i.e Nmap, WIreshark, Ufw(Uncomplicated Firewall)
   - Observe packets, ports, protocols and firewall behavior in various circumstances of attempted compromise by an attacker.
  - Explore a situation where Linux will be used to attack and vice versa to have a total perspective of how the two operating systems respond under these circumstances
 
