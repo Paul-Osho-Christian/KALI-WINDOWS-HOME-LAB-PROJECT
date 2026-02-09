@@ -62,7 +62,7 @@ sudo nmap -sn  192.168.56.0/24
 
 **Findings:**
 
-Three hosts up as expected (192.168.56.100,101,102)
+Three hosts up as expected (192.168.56.100(Host), 192.168.56.101(Attacker), 192.168.56.102(Target))
 
 ## Step 2 - Port scanning
 
@@ -110,7 +110,8 @@ It is impossible to put the scan results in context without understanding the be
 Get-NetFirewallProfile | Select Name,Enabled
 
 #Modify Firewall Rule To Allow Tcp to port 8080
-New-NetFirewallRule -DisplayName "Allow TCp 8080" -Direction Inbound -Localport 8080 -Action Allow -Protocol Tcp
+New-NetFirewallRule -DisplayName "Allow TCP 8080" -Direction Inbound -Localport 8080 -Action 
+Allow -Protocol TCP
 
 #Start a listening service bound to host to make best use of opened port(Not firewall related but it makes what we did work)
 Python3 -m http 8080
@@ -119,7 +120,6 @@ Python3 -m http 8080
 Netstat -ano | findstr "*8080*"
 
 #Disabling Firewall to allow direct access to port feedback for effective OS fingerprinting and summary scan
-
 #Disable Firewall to allow closed port response(RST)
 Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled False
 
@@ -169,7 +169,7 @@ See Images below at evidence section for further reference.
 
 ### Step 1 – Host Discovery
 **Purpose:**  
-To check functionality of the network. Run below on Cmd 
+To check functionality of the network. Run below on CMD.
 
 **Command(s) Used**
 ```bash
@@ -178,7 +178,7 @@ nmap -sn  192.168.56.0/24
 
 **Findings:**
 
-Three hosts up as expected (192.168.56.100,101,102)
+Three hosts up as expected (192.168.56.100(Host), 192.168.56.101(Target), 1192.168.56.102(Attacker).
 
 ## Step 2 - Port Scanning
 
@@ -194,7 +194,7 @@ nmap -sS 192.168.56.101
 #Check Versions of services running
 nmap -sV 192.168.56.101
 
-#The verbose version check, does the same thing as the above(-sV) ut gives more info
+#The verbose version check, does the same thing as the above(-sV) but gives more info
 nmap -vV 192.168.56.101
 
 #Fingerprint OS
@@ -243,17 +243,16 @@ See Images below at the evidence section for various comparisons between scans o
 
 - Windows has a solid default baseline security-wise, probably because it is viewed as an enterprise device and although kali uses a minimalist approach in service exposure(you even have to allow ssh in ufw). We cannot clearly say one system trumps the other security wise the most secure system ultimately depends on how much the user hardens them.
 - Misconfigured firewall rules or profiles can create loop hole for attackers to obtain access to ports
-- Information gained by port scans and os fingerprinting can aid attackers immensely hence why the blue team must always be on guard.
+- Information gained by port scans and OS fingerprinting can aid attackers immensely hence why the blue team must always be on guard.
 - Network segmentation can never be overemphasized as we can see here, defense in depth will never go out of trend.
 ---
 
 ## Lessons Learned
 
-- Nmap scan results must be interpreted in context
-- Firewall configuration significantly alters scan outcomes
+- Nmap scan results must be interpreted in context of the System's baseline and Firewall Configuration.
 - Wireshark is a great tool and actually can help give context to Nmap scans.
 - Nmap and Wireshark can give information of great value to help the Blue team retrace and map the present security position of a system but it can also be of great use to the attacker therefore it's really a double edged sword if you think about it.
-- I was able to learn about the activities that occur on different levels of the OSI model especially from Layer 1 to 4 (Physical layer, Datalink layer, Network and Transport layer.)
+- I was able to learn about the activities that occur on different levels of the OSI model especially from Layer 1 to 4 (Physical layer, Datalink layer, Network and Transport layer). Most of what is discussed here happens at these four layers.
 - We really don't have a physical layer(maybe my laptop?) cause we're connected to a virtual switch(Virtual NIC) in the sense of the virtualbox.
 - The Datalink layer where we resolve packet destination via ARP.
 - Network layer making use of ICMP(for pings) and our switch directing packets to our various IPs. 
@@ -272,7 +271,7 @@ See Images below at the evidence section for various comparisons between scans o
 
 ## Final Summary
 
-This lab demonstrated how OS defaults and firewall settings influence network visibility. It highlighted the importance of interpreting Nmap scans correctly and the defensive value of limiting exposed services in both Windows and Linux systems.
+This lab demonstrated how OS defaults and firewall settings influence network visibility. It highlighted the importance of interpreting Nmap scans correctly and the defensive value of limiting exposed services in both Windows and Linux systems and how Firewall Configurations play a key role in this.
 
 ---
 ## Evidence / Screenshots
