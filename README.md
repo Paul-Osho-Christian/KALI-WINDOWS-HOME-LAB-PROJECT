@@ -14,7 +14,8 @@
 
 ---
 
-## Objective
+## Objectives
+
 - Set up a home lab with windows 10 and Kali linux connected via Virtualbox host-only adapter
 - Initiate various type of scans from Nmap and observe firewall, ports and packets  behaviors
 - Capture packets on wire shark and get a better understanding of how ports and packets behave during scans on the wire.
